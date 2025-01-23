@@ -27,8 +27,11 @@ def lead_create(request):
         print("receiving post request")
         form = LeadForm(request.POST)
         if form.is_valid():
-            Lead.objects.create(first_name = request.POST.get('first_name'), last_name=request.POST.get('last_name'),
-                            age=request.POST.get('age'), agent=Agent.objects.get(id=1))
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            age = form.cleaned_data['age']
+            Lead.objects.create(first_name = first_name, last_name=last_name,
+                            age=age, agent=Agent.objects.get(id=1))
             print("the form is valid")
             print(form.cleaned_data)
     context = {
