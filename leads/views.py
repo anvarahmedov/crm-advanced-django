@@ -50,4 +50,4 @@ def lead_delete(request, pk):
     lead = Lead.objects.get(id=pk)
     lead_id = lead.id
     lead.delete()
-    return HttpResponse(f"lead {lead_id} deleted")
+    return redirect('/leads')
