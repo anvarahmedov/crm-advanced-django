@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lead List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
+
 <body>
+    <div class="max-w-7xl mx-auto">
+    {% include 'navbar.html' %}
     <a href="{% url 'leads:lead-list' %}">Go back</a>
     <h1>{{ lead.first_name }}  {{ lead.last_name }}</h1>
     <a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
     <a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a>
+</div>
 </body>
 </html>
